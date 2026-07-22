@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<a href="{% url 'create_course' %}">Kurs qo'shish</a>
+
 <h3>Course List</h3>
 {% for c in course %}
-  {{ c.name }}
+  <pre>
+    {{ c.title }} <a href="{% url 'read_course' c.pk  %}">Batafsil</a>
+  </pre>
 {% endfor%}
 <hr>
 

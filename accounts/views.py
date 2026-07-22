@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from accounts.forms import RegistrationForm, LoginForm
+from accounts.forms import RegistrationForm, LoginForm, TeacherForm, StudentForm
 from accounts.models import StudentProfile
 from django.contrib.auth import authenticate, login, logout
 
@@ -41,6 +41,51 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
+def get_teacher_profile(request):
+    user = request.user
+    if user:
+        profile = TeacherProfile.objects.get(user=user)
+    else:
+        return redirect('base.html')
+    return render(request, 'accounts/registration/profile.hmtl', {'profile': profile})
+
+def edit_teacher_profile(request):
+    teacher_profile = None
+    user = request.user
+    if user:
+        teacher_profile = TeacherProfile.objects.get(user=user)
+    if request.method == 'POST':
+        form = TeacherForm(request.POST, instance=teacher_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('teacher_profile')
+    else:
+        form = TeacherForm(instance=teacher_profile)
+    return render(request, 'accounts/edit_profile/profile.hmtl', {'form': form})
+
+def get_student_profile(request):
+    user = request.user
+    if user:
+        profile = StudentProfile.objects.get(user=user)
+    else:
+        return redirect('base.html')
+    return render(request, 'accounts/registration/profile.html', {'profile': profile})
+
+def edit_student_profile(request):
+    student_profile = None
+    user = request.user
+    if user:
+        student_profile = StudentProfile.objects.get(user=user)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('student_profile')
+    else:
+        form = StudentForm(instance=student_profile)
+    return render(request, 'accounts/registration/edit_profile.html', {'form': form})
 
 def show_home(request):
     return render(request, 'base.html')

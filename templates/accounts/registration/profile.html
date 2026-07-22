@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Profile</h1>
+<pre>
+    Username: {{profile.user.username}}
+    Email address: {{profile.user.email}}
+    Phone number: {{profile.user.phone}}
+    Birth date: {{profile.birth_date}}
+    Parent phone number: {{profile.parent_phone}}
+</pre>
+
+<a href="{% url 'edit_student_profile' %}">Edit Profile</a>
+
+{% endblock %}

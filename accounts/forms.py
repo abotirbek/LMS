@@ -27,9 +27,9 @@ class LoginForm(forms.Form):
 class TeacherForm(forms.ModelForm):
     class Meta:
         model = TeacherProfile
-        fields = ['user', 'specialization', 'bio']
+        fields = ['specialization', 'bio']
 
 class StudentForm(forms.ModelForm):
     class Meta:
         model = StudentProfile
-        fields = ['user', 'birth_date', 'parent_phone']
+        fields = ['birth_date', 'parent_phone']
