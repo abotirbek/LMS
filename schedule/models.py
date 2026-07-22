@@ -1,7 +1,7 @@
 from django.db import models
 
 from accounts.models import TeacherProfile, TimeStampedModel
-from courses.models import Group, Lesson, Room
+from courses.models import Groups, Lesson, Room
 
 
 class GroupSchedule(TimeStampedModel):
@@ -14,7 +14,7 @@ class GroupSchedule(TimeStampedModel):
         SATURDAY = 6, 'Shanba'
         SUNDAY = 7, 'Yakshanba'
 
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='schedules')
+    group = models.ForeignKey(Groups, on_delete=models.CASCADE, related_name='schedules')
     weekday = models.PositiveSmallIntegerField(choices=Weekday.choices)
     start_time = models.TimeField()
     end_time = models.TimeField()
@@ -28,7 +28,7 @@ class GroupSchedule(TimeStampedModel):
 
 
 class GroupLesson(TimeStampedModel):
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='conducted_lessons')
+    group = models.ForeignKey(Groups, on_delete=models.CASCADE, related_name='conducted_lessons')
     lesson = models.ForeignKey(Lesson, on_delete=models.PROTECT, related_name='conducted_lessons')
     date = models.DateField()
     teacher = models.ForeignKey(

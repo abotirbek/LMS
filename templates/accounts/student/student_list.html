@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Student List</h3>
+<ul>
+  {% for item in student %}
+    <li>
+      <a href="{% url 'read_student' item.pk %}">{{ item.user.get_full_name }}</a>
+      | <a href="{% url 'update_student' item.pk %}">Edit</a>
+      | <a href="{% url 'delete_student' item.pk %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No students yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_student' %}">Create Student</a>
+{% endblock %}

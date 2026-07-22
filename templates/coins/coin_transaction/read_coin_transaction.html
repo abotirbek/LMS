@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Coin Transaction Details</h3>
+<p>{{ coin_transaction }}</p>
+<a href="{% url 'update_coin_transaction' coin_transaction.pk %}">Edit</a> |
+<a href="{% url 'delete_coin_transaction' coin_transaction.pk %}">Delete</a>
+{% endblock %}

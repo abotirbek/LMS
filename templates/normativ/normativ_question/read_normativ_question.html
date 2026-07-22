@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Normativ Question Details</h3>
+<p>{{ question }}</p>
+<a href="{% url 'update_normativ_question' question.pk %}">Edit</a> |
+<a href="{% url 'delete_normativ_question' question.pk %}">Delete</a>
+{% endblock %}

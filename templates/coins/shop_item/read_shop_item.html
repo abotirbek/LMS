@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Shop Item Details</h3>
+<p>{{ shop_item }}</p>
+<a href="{% url 'update_shop_item' shop_item.pk %}">Edit</a> |
+<a href="{% url 'delete_shop_item' shop_item.pk %}">Delete</a>
+{% endblock %}

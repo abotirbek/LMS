@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Normativ List</h3>
+<ul>
+  {% for item in normativ %}
+    <li>
+      <a href="{% url 'read_normativ' item.pk %}">{{ item.title }}</a>
+      | <a href="{% url 'update_normativ' item.pk %}">Edit</a>
+      | <a href="{% url 'delete_normativ' item.pk %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No normativ records yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_normativ' %}">Create Normativ</a>
+{% endblock %}

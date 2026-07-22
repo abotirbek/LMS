@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Teacher Details</h3>
+<p><strong>Name:</strong> {{ teacher.user.get_full_name }}</p>
+<p><strong>Specialization:</strong> {{ teacher.specialization }}</p>
+<p><strong>Experience:</strong> {{ teacher.experience }}</p>
+<p><strong>Salary:</strong> {{ teacher.salary }}</p>
+<p><strong>Qualification:</strong> {{ teacher.qualification }}</p>
+<a href="{% url 'teacher_list' %}">Back</a>
+{% endblock %}

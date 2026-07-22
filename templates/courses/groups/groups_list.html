@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Group List</h3>
+{% for g in group %}
+  {{ g.name }}
+{% endfor%}
+<hr>
+
+{% endblock %}

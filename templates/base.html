@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LCMS</title>
+<style>
+  :root{
+    --navy: #1b2450;
+    --navy-light: rgba(255,255,255,0.7);
+    --border: #e7e8ee;
+    --text: #1b2450;
+    --muted: #8a8fa3;
+    --badge-bg: #eef0fb;
+    --badge-text: #5b62b3;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: #f4f5fa;
+  }
+
+  /* ===== TOP HORIZONTAL NAVBAR ===== */
+  .topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--navy);
+    padding: 14px 28px;
+    height: 56px;
+  }
+
+  .topbar-left{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .logo{
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .logo .tag{
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy-light);
+  }
+
+  .nav-links{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a{
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible{
+    color: #fff;
+  }
+
+  .topbar-right{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avatar{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #3b4488;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .user-name{
+    color: #fff;
+    font-size: 14.5px;
+    font-weight: 500;
+    margin-right: 6px;
+  }
+
+  .logout-btn{
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .logout-btn:hover{
+    background: rgba(255,255,255,0.18);
+  }
+
+  /* ===== LAYOUT WRAPPER ===== */
+  .layout{
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* ===== LEFT VERTICAL SIDEBAR ===== */
+  .sidebar{
+    width: 300px;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    padding: 20px 0;
+    flex-shrink: 0;
+  }
+
+  .sidebar-title{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--muted);
+    padding: 0 24px 12px;
+  }
+
+  .sidebar-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-item{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .sidebar-item:hover,
+  .sidebar-item:focus-visible{
+    background: #f5f6fb;
+  }
+
+  .sidebar-item.active{
+    background: #eef0fb;
+  }
+
+  .item-number{
+    width: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .item-label{
+    flex: 1;
+  }
+
+  .item-badge{
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  /* main content placeholder */
+  .content{
+    flex: 1;
+    padding: 40px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+  <!-- HORIZONTAL TOP NAVBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo">LMS <span class="tag">B2.1</span></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Bosh sahifa</a></li>
+          <li><a href="#">Kurslar</a></li>
+          <li><a href="#">Guruhlar</a></li>
+          <li><a href="#">Jadval</a></li>
+          <li><a href="#">Normativ</a></li>
+          <li><a href="#">Do'kon</a></li>
+          <li><a href="#">Yangiliklar</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="topbar-right">
+      <div class="avatar">AB</div>
+      <span class="user-name">Botirbek Abduxalimov</span>
+      <button class="logout-btn">Chiqish</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- VERTICAL LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-title">EKRANLAR</div>
+      <ul class="sidebar-list">
+        <li><a class="sidebar-item" href="#"><span class="item-number">01</span><span class="item-label">Login</span><span class="item-badge">B2.2</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">02</span><span class="item-label">Profil</span><span class="item-badge">B2.5</span></a></li>
+        <li><a class="sidebar-item" href="{% url 'course_list' %}"><span class="item-number">03</span><span class="item-label">Kurslar</span><span class="item-badge">B3.1</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">04</span><span class="item-label">Kurs sahifasi</span><span class="item-badge">B3.2</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">05</span><span class="item-label">Kurs formasi</span><span class="item-badge">B3.3</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">06</span><span class="item-label">Xonalar</span><span class="item-badge">B4.1</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">07</span><span class="item-label">Guruhlar</span><span class="item-badge">B4.2</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">08</span><span class="item-label">Guruh sahifasi</span><span class="item-badge">B4.3</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">09</span><span class="item-label">Haftalik jadval</span><span class="item-badge">B5.3</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">10</span><span class="item-label">Davomat</span><span class="item-badge">B6.2</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">11</span><span class="item-label">Guruh jurnali</span><span class="item-badge">B6.4</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">12</span><span class="item-label">Normativ (o'quvchi)</span><span class="item-badge">B7.2</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">13</span><span class="item-label">Tekshirish navbati</span><span class="item-badge">B7.3</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">14</span><span class="item-label">Baholash</span><span class="item-badge">B7.4</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">15</span><span class="item-label">Natijalarim</span><span class="item-badge">B7.5</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">16</span><span class="item-label">Coin sahifasi</span><span class="item-badge">B8.1</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">17</span><span class="item-label">Reyting</span><span class="item-badge">B8.2</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">18</span><span class="item-label">Do'kon</span><span class="item-badge">B8.3</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">19</span><span class="item-label">Xaridlar</span><span class="item-badge">B8.5</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">20</span><span class="item-label">Yangiliklar</span><span class="item-badge">B9.1</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">21</span><span class="item-label">Bosh sahifa</span><span class="item-badge">B9.2</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">22</span><span class="item-label">Student dashboard</span><span class="item-badge">B9.3</span></a></li>
+        <li><a class="sidebar-item" href="#"><span class="item-number">23</span><span class="item-label">Teacher dashboard</span><span class="item-badge">B9.4</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <p>Kontent shu yerda joylashadi.</p>
+    </main>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Coin Transaction List</h3>
+<ul>
+  {% for item in coin_transaction %}
+    <li>
+      <a href="{% url 'read_coin_transaction' item.pk %}">{{ item }}</a>
+      | <a href="{% url 'update_coin_transaction' item.pk %}">Edit</a>
+      | <a href="{% url 'delete_coin_transaction' item.pk %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No transactions yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_coin_transaction' %}">Create Coin Transaction</a>
+{% endblock %}

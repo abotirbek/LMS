@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Group Schedule Details</h3>
+<p>{{ group_schedule }}</p>
+<a href="{% url 'update_group_schedule' group_schedule.pk %}">Edit</a> |
+<a href="{% url 'delete_group_schedule' group_schedule.pk %}">Delete</a>
+{% endblock %}

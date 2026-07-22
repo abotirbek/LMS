@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Title: {{ group.title }}</h3>
+<p>Start time: {{group.start_time}}</p>
+<p>End time: {{group.end_time}}</p>
+<p>Schedule: {{group.schedule}}</p>
+<p>Capacity: {{group.capacity}}</p>
+<p>Branch name: {{group.branch.name}}</p>
+<p>Teacher name: {{group.teacher.name}}</p>
+<p>Course title: {{group.course.title}}</p>
+
+{% endblock %}

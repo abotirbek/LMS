@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Purchase Details</h3>
+<p>{{ purchase }}</p>
+<a href="{% url 'update_purchase' purchase.pk %}">Edit</a> |
+<a href="{% url 'delete_purchase' purchase.pk %}">Delete</a>
+{% endblock %}

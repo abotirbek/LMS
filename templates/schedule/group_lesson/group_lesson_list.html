@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Group Lesson List</h3>
+<ul>
+  {% for item in group_lesson %}
+    <li>
+      <a href="{% url 'read_group_lesson' item.pk %}">{{ item }}</a>
+      | <a href="{% url 'update_group_lesson' item.pk %}">Edit</a>
+      | <a href="{% url 'delete_group_lesson' item.pk %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No group lessons yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_group_lesson' %}">Create Group Lesson</a>
+{% endblock %}

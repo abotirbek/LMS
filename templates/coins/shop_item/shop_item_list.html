@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Shop Item List</h3>
+<ul>
+  {% for item in shop_item %}
+    <li>
+      <a href="{% url 'read_shop_item' item.pk %}">{{ item }}</a>
+      | <a href="{% url 'update_shop_item' item.pk %}">Edit</a>
+      | <a href="{% url 'delete_shop_item' item.pk %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No shop items yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_shop_item' %}">Create Shop Item</a>
+{% endblock %}

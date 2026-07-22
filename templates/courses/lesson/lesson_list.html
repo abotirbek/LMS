@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Lesson List</h3>
+{% for l in lesson %}
+  {{ l.title }}
+{% endfor%}
+<hr>
+
+{% endblock %}

@@ -53,7 +53,7 @@ class Lesson(TimeStampedModel):
         return f'{self.module} / {self.title}'
 
 
-class Group(TimeStampedModel):
+class Groups(TimeStampedModel):
     course = models.ForeignKey(Course, on_delete=models.PROTECT, related_name='groups')
     teacher = models.ForeignKey(TeacherProfile, on_delete=models.PROTECT, related_name='groups')
     mentor = models.ForeignKey(
@@ -78,7 +78,7 @@ class Group(TimeStampedModel):
 
 
 class GroupStudent(TimeStampedModel):
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='memberships')
+    groups = models.ForeignKey(Groups, on_delete=models.CASCADE, related_name='memberships')
     student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, related_name='memberships')
     joined_at = models.DateField()
     left_at = models.DateField(null=True, blank=True)
@@ -86,7 +86,7 @@ class GroupStudent(TimeStampedModel):
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['group', 'student'], name='unique_group_student'),
+            models.UniqueConstraint(fields=['groups', 'student'], name='unique_group_student'),
         ]
 
     def __str__(self):

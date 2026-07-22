@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <p>Do you really want to delete <b>{{ teacher.user.get_full_name }}</b>?</p>
+  <button type="submit">Yes</button>
+</form>
+<a href="{% url 'teacher_list' %}">Back</a>
+{% endblock %}

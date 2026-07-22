@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Normativ Answer List</h3>
+<ul>
+  {% for item in answers %}
+    <li>
+      <a href="{% url 'read_normativ_answer' item.pk %}">{{ item }}</a>
+      | <a href="{% url 'update_normativ_answer' item.pk %}">Edit</a>
+      | <a href="{% url 'delete_normativ_answer' item.pk %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No answers yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_normativ_answer' %}">Create Normativ Answer</a>
+{% endblock %}

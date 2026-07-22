@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Teacher List</h3>
+<ul>
+  {% for item in teacher %}
+    <li>
+      <a href="{% url 'read_teacher' item.pk %}">{{ item.user.get_full_name }}</a>
+      | <a href="{% url 'update_teacher' item.pk %}">Edit</a>
+      | <a href="{% url 'delete_teacher' item.pk %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No teachers yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_teacher' %}">Create Teacher</a>
+{% endblock %}

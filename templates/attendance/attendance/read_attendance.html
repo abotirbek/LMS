@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Attendance Details</h3>
+<p>{{ attendance }}</p>
+<a href="{% url 'update_attendance' attendance.pk %}">Edit</a> |
+<a href="{% url 'delete_attendance' attendance.pk %}">Delete</a>
+{% endblock %}

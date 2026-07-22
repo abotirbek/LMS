@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Student-Group</h3>
+{% for sg in student_group %}
+  {{ sg.name }}
+{% endfor%}
+<hr>
+
+{% endblock %}

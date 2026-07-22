@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Group Schedule List</h3>
+<ul>
+  {% for item in group_schedule %}
+    <li>
+      <a href="{% url 'read_group_schedule' item.pk %}">{{ item }}</a>
+      | <a href="{% url 'update_group_schedule' item.pk %}">Edit</a>
+      | <a href="{% url 'delete_group_schedule' item.pk %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No group schedules yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_group_schedule' %}">Create Group Schedule</a>
+{% endblock %}
