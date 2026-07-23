@@ -4,9 +4,10 @@
 <a href="{% url 'create_groups' %}">Guruh qo'shish</a>
 
 <h3>Guruhlar</h3>
-{% for g in group %}
-  {{ g.name }} {{ g.course.title }} {{ g.teacher.name }} {{ g.students.count }} {{ g.isactive }}
+{% for g in groups %}
+<pre>
+  {{ g.name }} {{ g.course.title }} {{ g.teacher.user.first_name }} {{ g.teacher.user.last_name }} {{ g.students.count }} {{ g.isactive }}
+</pre><hr>
 {% endfor%}
-<hr>
 
 {% endblock %}

@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+
+from courses.models import Course
 from .models import News
 from .forms import NewsForm
 

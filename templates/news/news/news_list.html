@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <h3>News List</h3>
-<ul>
-  {% for item in news %}
-    <li>
-      <a href="{% url 'read_news' item.pk %}">{{ item.title }}</a>
-      | <a href="{% url 'update_news' item.pk %}">Edit</a>
-      | <a href="{% url 'delete_news' item.pk %}">Delete</a>
-    </li>
-  {% empty %}
-    <li>No news items yet.</li>
-  {% endfor %}
-</ul>
-<a href="{% url 'create_news' %}">Create News</a>
+
+<a href="{% url 'create_news' %}">Yangilik qo'shish</a>
+
+
+{% for item in news %}
+  <pre>
+    {{ item.title }} <a href="{% url 'update_news' item.pk %}">Edit </a><a href="{% url 'delete_news' item.pk %}"> Delete</a>
+  </pre><hr>
+{% empty %}
+  <li>Yangiliklar hali chop etilmadi</li>
+{% endfor %}
+
 {% endblock %}

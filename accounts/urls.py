@@ -3,17 +3,19 @@ from django.urls import path
 import accounts
 from accounts import views
 
-app_name = 'accounts'
-
 urlpatterns = [
+    path('', views.show_home, name='home'),
     path('register/', views.register, name='register'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
+
+    path('student_base/', views.get_student_base, name = 'student_base'),
     path('student_profile/', views.get_student_profile, name='student_profile'),
     path('edit_student_profile/', views.edit_student_profile, name='edit_student_profile'),
+
+    path('teacher_base/', views.get_teacher_base, name='teacher_base'),
     path('teacher_profile/', views.get_teacher_profile, name='teacher_profile'),
     path('edit_teacher_profile/', views.edit_teacher_profile, name='edit_teacher_profile'),
-    path('', views.show_home, name='home'),
 
     path('teacher_list/', views.get_teacher, name='teacher_list'),
     path('create_teacher/', views.create_teacher, name='create_teacher'),

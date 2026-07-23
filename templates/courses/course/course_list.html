@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<h3>Kurslar</h3>
+
 <a href="{% url 'create_course' %}">Kurs qo'shish</a>
 
-<h3>Kurslar</h3>
 {% for c in course %}
   <pre>
-    {{ c.title }} <a href="{% url 'read_course' c.pk  %}">Batafsil</a>
-  </pre>
+    <b>{{ c.title }}</b>
+    {{ c.duration_months}} oy * {{ c.module.count }} modul * {{ c.groups.name }}
+    <a href="{% url 'read_course' c.pk  %}">Batafsil</a>
+  </pre><hr>
 {% endfor%}
-<hr>
 
 {% endblock %}

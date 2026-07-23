@@ -1,8 +1,6 @@
 from django.urls import path
 from . import views
 
-app_name = 'coins'
-
 urlpatterns = [
     path('transactions/', views.get_coin_transaction, name='coin_transaction_list'),
     path('transactions/create/', views.create_coin_transaction, name='create_coin_transaction'),
