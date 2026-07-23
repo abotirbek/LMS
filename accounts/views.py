@@ -82,10 +82,8 @@ def edit_student_profile(request):
     user = request.user
     if user:
         student_profile = StudentProfile.objects.get(user=user)
-        student_profile1 = CustomUser.objects.get(user=user)
     if request.method == 'POST':
         form = StudentForm(request.POST, instance=student_profile)
-        from1 = CustomUser
         if form.is_valid():
             form.save()
             return redirect('student_profile')
