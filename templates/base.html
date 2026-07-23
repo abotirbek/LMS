@@ -235,7 +235,7 @@
       {% if request.user.is_authenticated %}
         <a href="{% url 'logout' %}" class="logout-btn">Chiqish</a>
       {% else %}
-        <a href="{% url 'login' %}" class="logout-btn">Kirish</a>
+        <a href="{% url 'login' %}" class="login-btn">Kirish</a>
       {% endif %}
     </div>
   </header>
@@ -250,7 +250,7 @@
         <li><a class="sidebar-item" href="{% url 'course_list' %}"><span class="item-number">03</span><span class="item-label">Kurslar</span><span class="item-badge">B3.1</span></a></li>
         <li><a class="sidebar-item" href="#"><span class="item-number">04</span><span class="item-label">Kurs sahifasi</span><span class="item-badge">B3.2</span></a></li>
         <li><a class="sidebar-item" href="#"><span class="item-number">05</span><span class="item-label">Kurs formasi</span><span class="item-badge">B3.3</span></a></li>
-        <li><a class="sidebar-item" href="#"><span class="item-number">06</span><span class="item-label">Xonalar</span><span class="item-badge">B4.1</span></a></li>
+        <li><a class="sidebar-item" href="{% url 'room_list' %}"><span class="item-number">06</span><span class="item-label">Xonalar</span><span class="item-badge">B4.1</span></a></li>
         <li><a class="sidebar-item" href="{% url 'groups_list' %}"><span class="item-number">07</span><span class="item-label">Guruhlar</span><span class="item-badge">B4.2</span></a></li>
         <li><a class="sidebar-item" href="#"><span class="item-number">08</span><span class="item-label">Guruh sahifasi</span><span class="item-badge">B4.3</span></a></li>
         <li><a class="sidebar-item" href="#"><span class="item-number">09</span><span class="item-label">Haftalik jadval</span><span class="item-badge">B5.3</span></a></li>

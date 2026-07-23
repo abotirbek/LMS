@@ -24,7 +24,7 @@ class LessonForms(forms.ModelForm):
 class GroupForms(forms.ModelForm):
     class Meta:
         model = Groups
-        fields = ['course', 'teacher', 'mentor', 'name', 'start_date', 'is_active', 'students']
+        fields = ['course', 'teacher', 'mentor', 'name', 'start_date', 'is_active']
 
 class GroupStudentsForms(forms.ModelForm):
     class Meta:

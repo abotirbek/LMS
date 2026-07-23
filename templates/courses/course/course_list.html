@@ -3,7 +3,7 @@
 
 <a href="{% url 'create_course' %}">Kurs qo'shish</a>
 
-<h3>Course List</h3>
+<h3>Kurslar</h3>
 {% for c in course %}
   <pre>
     {{ c.title }} <a href="{% url 'read_course' c.pk  %}">Batafsil</a>

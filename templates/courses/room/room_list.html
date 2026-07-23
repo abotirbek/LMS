@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<a href="{% url 'create_room' %}">Xona qo'shish</a>
+
 <h3>Room List</h3>
 {% for r in room %}
-  {{ r.name }}
+<pre>
+  {{ r.name }} {{ r.capacity}} <a href="{% url 'update_room' r.pk %}">Edit</a> <a href="{% url 'delete_room' r.pk %}">Delete</a>
+</pre>
 {% endfor%}
 <hr>
 

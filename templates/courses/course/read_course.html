@@ -2,7 +2,13 @@
 {% block content %}
 
 <h3>Title: {{ course.title }}</h3>
-<p>Duration: {{course.duration_months}} months</p>
+<p>Duration: {{course.duration_months}} oy</p>
+{% for g in course.groups.all %}
+<p>{{ g.name }}</p>
+{% endfor %}
+{% for g in course.module.all %}
+<p>{{ g.title }}</p>
+{% endfor %}
 <p>Description: {{course.description}}</p>
 
 

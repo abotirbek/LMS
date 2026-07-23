@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'schedule'
+
 urlpatterns = [
     path('schedules/', views.get_group_schedule, name='group_schedule_list'),
     path('schedules/create/', views.create_group_schedule, name='create_group_schedule'),

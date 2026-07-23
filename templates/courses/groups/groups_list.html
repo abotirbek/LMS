@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3>Group List</h3>
+<a href="{% url 'create_groups' %}">Guruh qo'shish</a>
+
+<h3>Guruhlar</h3>
 {% for g in group %}
-  {{ g.name }}
+  {{ g.name }} {{ g.course.title }} {{ g.teacher.name }} {{ g.students.count }} {{ g.isactive }}
 {% endfor%}
 <hr>
 
