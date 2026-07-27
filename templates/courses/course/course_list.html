@@ -8,7 +8,7 @@
 {% for c in course %}
   <pre>
     <b>{{ c.title }}</b>
-    {{ c.duration_months}} oy * {{ c.module.count }} modul * {{ c.groups.name }}
+    {{ c.duration_months}} oy * {{ c.modules.count }}ta modul * {{ c.groups.count }}ta guruh
     <a href="{% url 'read_course' c.pk  %}">Batafsil</a>
   </pre><hr>
 {% endfor%}

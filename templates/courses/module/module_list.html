@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<a href="{% url 'create_module' %}">Modul qo'shish</a>
+
 <h3>Module List</h3>
 {% for m in module %}
+<pre>
   {{ m.title }}
+</pre><hr>
 {% endfor%}
-<hr>
 
 {% endblock %}

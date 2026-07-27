@@ -15,7 +15,7 @@ urlpatterns = [
     path('shop-items/<int:pk>/delete/', shop_item_views.delete_shop_item, name='delete_shop_item'),
 
     path('purchases/', purchase_views.get_purchase, name='purchase_list'),
-    path('purchases/create/', purchase_views.create_purchase, name='create_purchase'),
+    path('purchases/create/<int:pk>/', purchase_views.create_purchase, name='create_purchase'),
     path('purchases/<int:pk>/', purchase_views.read_purchase, name='read_purchase'),
     path('purchases/<int:pk>/update/', purchase_views.update_purchase, name='update_purchase'),
     path('purchases/<int:pk>/delete/', purchase_views.delete_purchase, name='delete_purchase'),

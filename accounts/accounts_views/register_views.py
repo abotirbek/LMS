@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from accounts.accounts_forms.registration_forms import RegistrationForm, LoginForm
 from accounts.models import StudentProfile
 from django.contrib.auth import authenticate, login, logout
+from courses.models import Course
 
 
 def register(request):
@@ -46,4 +47,5 @@ def logout_view(request):
 
 
 def show_home(request):
-    return render(request, 'base.html')
+    course = Course.objects.all()
+    return render(request, 'base.html', {'course': course})

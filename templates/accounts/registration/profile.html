@@ -3,14 +3,15 @@
 
 <h1>Profile</h1>
 <pre>
-    Username: {{profile.user.username}}
-    First name: {{profile.user.first_name}}
-    Last name: {{profile.user.last_name}}
-    Email address: {{profile.user.email}}
-    Phone number: {{profile.user.phone}}
-    Birth date: {{profile.birth_date}}
-    Parent phone number: {{profile.parent_phone}}
-    Coin balans: {{profile.coin_transactions.amount}}
+    Username:               {{profile.user.username}}
+    Role:                   {{profile.user.role}}
+    First name:             {{profile.user.first_name}}
+    Last name:              {{profile.user.last_name}}
+    Email address:          {{profile.user.email}}
+    Phone number:           {{profile.user.phone}}
+    Birth date:             {{profile.birth_date}}
+    Parent phone number:    {{profile.parent_phone}}
+    Coin balans:            {{profile.coin_balance}}
 </pre>
 
 <a href="{% url 'edit_student_profile' %}">Edit Profile</a>

@@ -4,4 +4,4 @@ from courses.models import Module
 class ModuleForms(forms.ModelForm):
     class Meta:
         model = Module
-        fields = ['course', 'title', 'order']
+        fields = ['title', 'order']

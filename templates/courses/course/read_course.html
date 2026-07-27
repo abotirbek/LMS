@@ -2,15 +2,22 @@
 {% block content %}
 
 <h3>Title: {{ course.title }}</h3>
-<p>Duration: {{course.duration_months}} oy</p>
+<p>{{course.duration_months}} oy * {{course.is_active}}</p>
+<p>{{course.description}}</p>
+
+
 {% for g in course.groups.all %}
-<p>{{ g.name }}</p>
+<p>{{ g.name }}</p><hr>
 {% endfor %}
-{% for g in course.module.all %}
-<p>{{ g.title }}</p>
+
+<hr><hr>
+
+{% for m in course.modules.all %}
+<b>{{ m.title }}</b><hr>
+{% for l in m.lessons.all %}
+<p>     {{ l.title }}</p><hr>
 {% endfor %}
-<p>Description: {{course.description}}</p>
-
-
-
+<pre><a href="{% url 'create_lesson' %}">Dars qo'shish</a></pre>
+{% endfor %}
+<pre><a href="{% url 'create_module' course.pk %}">Modul qo'shish</a></pre>
 {% endblock %}

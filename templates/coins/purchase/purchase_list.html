@@ -1,16 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <h3>Purchase List</h3>
-<ul>
-  {% for item in purchase %}
-    <li>
-      <a href="{% url 'read_purchase' item.pk %}">{{ item }}</a>
-      | <a href="{% url 'update_purchase' item.pk %}">Edit</a>
-      | <a href="{% url 'delete_purchase' item.pk %}">Delete</a>
-    </li>
-  {% empty %}
-    <li>No purchases yet.</li>
+{% for item in purchase %}
+<pre>
+  {{item.student.first_name}} {{item.studen.last_name}} | {{item.item.name}} | {{item.created_at}} | {{item.status}}
+</pre><hr>
   {% endfor %}
-</ul>
-<a href="{% url 'create_purchase' %}">Create Purchase</a>
 {% endblock %}

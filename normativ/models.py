@@ -8,7 +8,7 @@ from courses.models import Lesson
 class Normativ(TimeStampedModel):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='normativs')
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -35,7 +35,7 @@ class NormativAnswer(TimeStampedModel):
     student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, related_name='normativ_answers')
     answer_text = models.TextField()
     score = models.PositiveSmallIntegerField(null=True, blank=True)
-    feedback = models.TextField(blank=True)
+    feedback = models.TextField(null=True, blank=True)
     checked_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,

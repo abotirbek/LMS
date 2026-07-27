@@ -14,7 +14,7 @@ class CoinTransaction(TimeStampedModel):
     student = models.ForeignKey(StudentProfile, on_delete=models.PROTECT, related_name='coin_transactions')
     amount = models.IntegerField()
     reason = models.CharField(max_length=15, choices=Reason.choices)
-    comment = models.CharField(max_length=255, blank=True)
+    comment = models.CharField(max_length=255, null=True, blank=True)
     created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -32,7 +32,7 @@ class CoinTransaction(TimeStampedModel):
 
 class ShopItem(TimeStampedModel):
     name = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='shop/', blank=True)
+    image = models.ImageField(upload_to='shop/', null=True, blank=True)
     price = models.PositiveIntegerField()
     stock = models.PositiveSmallIntegerField(default=0)
     is_active = models.BooleanField(default=True)

@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.db.models.functions import Now
 
 from accounts.models import CustomUser, StudentProfile, TeacherProfile, TimeStampedModel
 
@@ -14,7 +15,7 @@ class Room(TimeStampedModel):
 
 class Course(TimeStampedModel):
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    description = models.TextField(null=True, blank=True)
     duration_months = models.PositiveSmallIntegerField()
     is_active = models.BooleanField(default=True)
 
@@ -55,7 +56,7 @@ class Lesson(TimeStampedModel):
 
 class Groups(TimeStampedModel):
     course = models.ForeignKey(Course, on_delete=models.PROTECT, related_name='groups')
-    teacher = models.ForeignKey(TeacherProfile, on_delete=models.PROTECT, related_name='groups')
+    teacher = models.ForeignKey(TeacherProfile, on_delete=models.PROTECT, related_name='groups_teacher')
     mentor = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -80,8 +81,8 @@ class Groups(TimeStampedModel):
 class GroupStudent(TimeStampedModel):
     groups = models.ForeignKey(Groups, on_delete=models.CASCADE, related_name='memberships')
     student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, related_name='memberships')
-    joined_at = models.DateField()
-    left_at = models.DateField(null=True, blank=True)
+    joined_at = models.DateField(auto_now_add=True, null=True, blank=True)
+    left_at = models.DateField(auto_now_add=True, null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
     class Meta:

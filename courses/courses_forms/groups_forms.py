@@ -4,4 +4,7 @@ from courses.models import Groups
 class GroupForms(forms.ModelForm):
     class Meta:
         model = Groups
-        fields = ['course', 'teacher', 'mentor', 'name', 'start_date', 'is_active']
+        fields = ['name', 'course', 'teacher', 'students', 'mentor', 'start_date', 'is_active']
+        widgets = {
+            'students': forms.CheckboxSelectMultiple(),
+        }

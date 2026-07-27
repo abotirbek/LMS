@@ -7,7 +7,7 @@ from accounts.models import TimeStampedModel
 class News(TimeStampedModel):
     title = models.CharField(max_length=200)
     body = models.TextField()
-    image = models.ImageField(upload_to='news/', blank=True)
+    image = models.ImageField(upload_to='news/', null=True, blank=True)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,

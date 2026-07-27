@@ -7,8 +7,7 @@
 {% for r in room %}
 <pre>
   {{ r.name }} {{ r.capacity}} <a href="{% url 'update_room' r.pk %}">Edit</a> <a href="{% url 'delete_room' r.pk %}">Delete</a>
-</pre>
+</pre><hr>
 {% endfor%}
-<hr>
 
 {% endblock %}

@@ -15,7 +15,7 @@ urlpatterns = [
     path('delete_group/<int:pk>/', groups_views.delete_group, name='delete_groups'),
 
     path('module_list', module_views.get_module, name='module_list'),
-    path('create_module/', module_views.create_module, name='create_module'),
+    path('create_module/<int:pk>/', module_views.create_module, name='create_module'),
     path('read_module/<int:pk>/', module_views.read_module, name='read_module'),
     path('update_module/<int:pk>/', module_views.update_module, name='update_module'),
     path('delete_module/<int:pk>/', module_views.delete_module, name='delete_module'),

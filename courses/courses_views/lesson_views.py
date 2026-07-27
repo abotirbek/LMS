@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from courses.models import Lesson
 from courses.courses_forms.lesson_forms import LessonForms
+from courses.models import Module
 
 
 def get_lesson(request):

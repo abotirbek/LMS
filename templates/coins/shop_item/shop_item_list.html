@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 <h3>Shop Item List</h3>
-<ul>
-  {% for item in shop_item %}
-    <li>
-      <a href="{% url 'read_shop_item' item.pk %}">{{ item }}</a>
-      | <a href="{% url 'update_shop_item' item.pk %}">Edit</a>
-      | <a href="{% url 'delete_shop_item' item.pk %}">Delete</a>
-    </li>
-  {% empty %}
-    <li>No shop items yet.</li>
-  {% endfor %}
-</ul>
-<a href="{% url 'create_shop_item' %}">Create Shop Item</a>
+
+<a href="{% url 'create_shop_item' %}">Mahsulot qo'shish</a>
+
+{% for i in shop_item %}
+<pre>
+  <b>{{i.name}}</b>
+  {{i.price}} coin * {{i.stock}} dona qolgan * {{i.is_active}}
+  <a href="{% url 'read_shop_item' i.pk %}">Batafsil</a> <a href="{% url 'update_shop_item' i.pk %}">Edit</a> <a href="{% url 'delete_shop_item' i.pk %}">Delete</a>
+  <a href="{% url 'create_purchase' i.pk %}">Sotib olish</a>
+</pre><hr>
+{% endfor %}
+
 {% endblock %}

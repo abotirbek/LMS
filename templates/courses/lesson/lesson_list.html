@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3>Lesson List</h3>
+<a href="{% url 'create_lesson' %}">Dars qo'shish</a>
+
 {% for l in lesson %}
+<pre>
   {{ l.title }}
+</pre><hr>
 {% endfor%}
-<hr>
 
 {% endblock %}
