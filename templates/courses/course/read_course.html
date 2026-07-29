@@ -17,7 +17,7 @@
 {% for l in m.lessons.all %}
 <p>     {{ l.title }}</p><hr>
 {% endfor %}
-<pre><a href="{% url 'create_lesson' %}">Dars qo'shish</a></pre>
+<pre><a href="{% url 'create_lesson' m.pk %}">Dars qo'shish</a></pre><hr><hr>
 {% endfor %}
 <pre><a href="{% url 'create_module' course.pk %}">Modul qo'shish</a></pre>
 {% endblock %}

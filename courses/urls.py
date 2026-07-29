@@ -11,6 +11,7 @@ urlpatterns = [
     path('group_list/', groups_views.get_group, name='groups_list'),
     path('create_group/', groups_views.create_group, name='create_groups'),
     path('read_group/<int:pk>/', groups_views.read_group, name='read_groups'),
+    path('group_dashboard/<int:pk>/', groups_views.get_group_dashboard, name='group_dashboard'),
     path('update_group/<int:pk>/', groups_views.update_group, name='update_groups'),
     path('delete_group/<int:pk>/', groups_views.delete_group, name='delete_groups'),
 
@@ -27,7 +28,7 @@ urlpatterns = [
     path('delete_room/<int:pk>/', room_views.delete_room, name='delete_room'),
 
     path('lesson_list/', lesson_views.get_lesson, name='lesson_list'),
-    path('create_lesson/', lesson_views.create_lesson, name='create_lesson'),
+    path('create_lesson/<int:module_pk>/', lesson_views.create_lesson, name='create_lesson'),
     path('read_lesson/<int:pk>/', lesson_views.read_lesson, name='read_lesson'),
     path('update_lesson/<int:pk>/', lesson_views.update_lesson, name='update_lesson'),
     path('delete_lesson/<int:pk>/', lesson_views.delete_lesson, name='delete_lesson'),

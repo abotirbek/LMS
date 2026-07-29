@@ -8,3 +8,11 @@ class GroupForms(forms.ModelForm):
         widgets = {
             'students': forms.CheckboxSelectMultiple(),
         }
+
+class GroupStudentForms(forms.ModelForm):
+    class Meta:
+        model = Groups
+        fields = ['students']
+        widgets = {
+            'students': forms.CheckboxSelectMultiple(),
+        }

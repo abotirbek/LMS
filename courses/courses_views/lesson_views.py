@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from courses.models import Lesson
 from courses.courses_forms.lesson_forms import LessonForms
-from courses.models import Module
+from courses.models import Groups, Module
 
 
 def get_lesson(request):
@@ -9,10 +9,15 @@ def get_lesson(request):
     return render(request, 'courses/lesson/lesson_list.html', {'lesson': lesson})
 
 
-def create_lesson(request):
+def create_lesson(request, groups_pk, module_pk):
+    groups = get_object_or_404(Groups, pk=groups_pk)
+    module = get_object_or_404(Module, pk=module_pk)
     if request.method == 'POST':
         form = LessonForms(request.POST)
         if form.is_valid():
+            lesson = form.save(commit=False)
+            lesson.group = groups
+            lesson.module = module
             form.save()
             return redirect('lesson_list')
     else:

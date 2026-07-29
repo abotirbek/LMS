@@ -7,7 +7,7 @@
 {% for g in groups %}
 <pre>
   {{ g.name }} {{ g.course.title }} {{ g.teacher.user.first_name }} {{ g.teacher.user.last_name }} {{ g.students.count }} {{ g.is_active }}
-  <a href="{% url 'read_groups' g.pk %}">Read</a> <a href="{% url 'update_groups' g.pk %}">Edit</a> <a href="{% url 'delete_groups' g.pk %}">Delete</a>
+  <a href="{% url 'group_dashboard' g.pk %}">Read</a> <a href="{% url 'update_groups' g.pk %}">Edit</a> <a href="{% url 'delete_groups' g.pk %}">Delete</a>
 </pre><hr>
 {% endfor%}
 

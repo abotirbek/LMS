@@ -4,4 +4,23 @@
 <h3>{{ groups.course.title }}</h3>
 <p>{{groups.teacher.user.first_name}} {{groups.teacher.user.last_name}} * {{groups.course.title}} * mentor: {{groups.mentor.first_name}} {{groups.mentor.last_name}}</p>
 
+<form method="post">
+  {% csrf_token %}
+  <p>{{ form_students.as_p}}</p>
+  <button type="submit">Saqlash</button>
+</form><hr>
+
+<form method="post">
+  {% csrf_token %}
+  <p>{{ form_schedule.as_p}}</p>
+  <button type="submit">Saqlash</button>
+</form>
+{% for s in groups.schedules.all %}
+<p>{{s.weekday}} {{s.start_time}}-{{s.end_time}} {{s.room.name}}</p>
+{% endfor %}
+<hr>
+
+{% for l in groups.course.modules.lessons.all %}
+<p>{{l.date}} <a href="{% url 'read_lesson' l.pk %}">{{l.title}}</a></p>
+{% endfor %}
 {% endblock %}

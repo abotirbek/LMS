@@ -4,7 +4,7 @@ from courses.models import Lesson
 class LessonForms(forms.ModelForm):
     class Meta:
         model = Lesson
-        fields = ['module', 'title', 'content', 'order']
+        fields = ['title', 'content', 'order', 'date']
         widgets = {
-            'module': forms.CheckboxSelectMultiple(),
+            'date': forms.DateInput(attrs={'type': 'date'}),
         }

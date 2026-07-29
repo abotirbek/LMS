@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from schedule.models import GroupSchedule
 from schedule.schedule_forms.group_schedule_forms import GroupScheduleForm
+from courses.models import Groups
 
 
 
@@ -8,16 +9,18 @@ def get_group_schedule(request):
     group_schedule = GroupSchedule.objects.all()
     return render(request, 'schedule/group_schedule/group_schedule_list.html', {'group_schedule': group_schedule})
 
-
-def create_group_schedule(request):
+def create_group_schedule(request, pk):
+    groups = get_object_or_404(Groups, pk=pk)
     if request.method == 'POST':
         form = GroupScheduleForm(request.POST)
         if form.is_valid():
+            schedule = form.save(commit=False)
+            schedule.group = groups
             form.save()
             return redirect('group_schedule_list')
     else:
         form = GroupScheduleForm()
-    return render(request, 'schedule/group_schedule/create_group_schedule.html', {'form': form})
+    return form
 
 
 def read_group_schedule(request, pk):

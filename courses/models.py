@@ -1,6 +1,6 @@
+from django.utils import timezone
 from django.conf import settings
 from django.db import models
-from django.db.models.functions import Now
 
 from accounts.models import CustomUser, StudentProfile, TeacherProfile, TimeStampedModel
 
@@ -43,6 +43,7 @@ class Lesson(TimeStampedModel):
     title = models.CharField(max_length=200)
     content = models.TextField(blank=True)
     order = models.PositiveSmallIntegerField()
+    date = models.DateField(default=timezone.now)
 
     class Meta:
         ordering = ['order']
