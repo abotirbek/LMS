@@ -18,7 +18,7 @@ def create_module(request, pk):
             module = form.save(commit=False)
             module.course = course
             module.save()
-            return redirect('module_list')
+            return redirect('read_course', course.pk)
     else:
         form = ModuleForms()
     context = {'form': form, 'course': course,}

@@ -5,29 +5,22 @@ from accounts.models import StudentProfile, TimeStampedModel
 from courses.models import Lesson
 
 
-class Normativ(TimeStampedModel):
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='normativs')
-    title = models.CharField(max_length=200)
-    description = models.TextField(null=True, blank=True)
-
-    def __str__(self):
-        return self.title
-
-
 class NormativQuestion(TimeStampedModel):
-    normativ = models.ForeignKey(Normativ, on_delete=models.CASCADE, related_name='questions')
+    # null=True, blank=True ni ish bitganidan keyin o'chirib kerak
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='normativ_question', null=True, blank=True)
     text = models.TextField()
     max_score = models.PositiveSmallIntegerField(default=10)
     order = models.PositiveSmallIntegerField()
 
     class Meta:
         ordering = ['order']
-        constraints = [
-            models.UniqueConstraint(fields=['normativ', 'order'], name='unique_question_order'),
-        ]
+        # COnstrains ni to'g'irlash kerak
+        # constraints = [
+        #     models.UniqueConstraint(fields=['normativ_question', 'order'], name='unique_question_order'),
+        # ]
 
     def __str__(self):
-        return f'{self.normativ} — savol {self.order}'
+        return f'{self.lesson} — savol {self.order}'
 
 
 class NormativAnswer(TimeStampedModel):

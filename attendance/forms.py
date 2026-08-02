@@ -5,3 +5,7 @@ class AttendanceForm(forms.ModelForm):
     class Meta:
         model = Attendance
         fields = ['group_lesson', 'student', 'status']
+
+    widgets = {
+        'status': forms.CheckboxSelectMultiple(),
+    }

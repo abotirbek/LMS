@@ -9,7 +9,7 @@ class GroupForms(forms.ModelForm):
             'students': forms.CheckboxSelectMultiple(),
         }
 
-class GroupStudentForms(forms.ModelForm):
+class StudentGroupForms(forms.ModelForm):
     class Meta:
         model = Groups
         fields = ['students']

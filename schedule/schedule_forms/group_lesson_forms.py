@@ -4,4 +4,4 @@ from schedule.models import GroupLesson
 class GroupLessonForm(forms.ModelForm):
     class Meta:
         model = GroupLesson
-        fields = ['group', 'lesson', 'teacher']
+        fields = ['lesson']

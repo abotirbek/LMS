@@ -43,7 +43,6 @@ class Lesson(TimeStampedModel):
     title = models.CharField(max_length=200)
     content = models.TextField(blank=True)
     order = models.PositiveSmallIntegerField()
-    date = models.DateField(default=timezone.now)
 
     class Meta:
         ordering = ['order']

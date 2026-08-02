@@ -15,7 +15,8 @@
 {% for m in course.modules.all %}
 <b>{{ m.title }}</b><hr>
 {% for l in m.lessons.all %}
-<p>     {{ l.title }}</p><hr>
+<p>     {{ l.title }}</p>
+<p>     <a href="{% url 'create_normativ_question' l.pk %}">Normativ yaratish</a> </p><hr>
 {% endfor %}
 <pre><a href="{% url 'create_lesson' m.pk %}">Dars qo'shish</a></pre><hr><hr>
 {% endfor %}

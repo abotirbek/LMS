@@ -10,13 +10,17 @@ def get_group_lesson(request):
 
 
 def create_group_lesson(request):
-    if request.method == 'POST':
-        form = GroupLessonForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('group_lesson_list')
-    else:
-        form = GroupLessonForm()
+    if request.user.role == 'teacher':
+        if request.method == 'POST':
+            form = GroupLessonForm(request.POST)
+            if form.is_valid():
+                group_lesson = form.save(commit=False)
+                group_lesson.group = request.user.teacher_profile.groups_teacher
+                group_lesson.teacher = request.user.teacher_profile
+                form.save()
+                return redirect('group_lesson_list')
+        else:
+            form = GroupLessonForm()
     return render(request, 'schedule/group_lesson/create_group_lesson.html', {'form': form})
 
 

@@ -9,17 +9,15 @@ def get_lesson(request):
     return render(request, 'courses/lesson/lesson_list.html', {'lesson': lesson})
 
 
-def create_lesson(request, groups_pk, module_pk):
-    groups = get_object_or_404(Groups, pk=groups_pk)
-    module = get_object_or_404(Module, pk=module_pk)
+def create_lesson(request, pk):
+    module = get_object_or_404(Module, pk=pk)
     if request.method == 'POST':
         form = LessonForms(request.POST)
         if form.is_valid():
             lesson = form.save(commit=False)
-            lesson.group = groups
             lesson.module = module
-            form.save()
-            return redirect('lesson_list')
+            lesson.save()
+            return redirect('read_course', module.course.pk)
     else:
         form = LessonForms()
     return render(request, 'courses/lesson/create_lesson.html', {'form': form})

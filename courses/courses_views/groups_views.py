@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from courses.models import Groups
-from courses.courses_forms.groups_forms import GroupForms, GroupStudentForms
+from courses.courses_forms.groups_forms import GroupForms, StudentGroupForms
 from schedule.schedule_views.group_schedule_views import create_group_schedule
 
 # Create your accounts_views here.
@@ -29,12 +29,12 @@ def read_group(request, pk):
 def update_group_students(request, pk):
     groups = get_object_or_404(Groups, pk=pk)
     if request.method == 'POST':
-        form = GroupStudentForms(request.POST, instance=groups)
+        form = StudentGroupForms(request.POST, instance=groups)
         if form.is_valid():
             form.save()
             return redirect('groups_list')
     else:
-        form = GroupStudentForms(instance=groups)
+        form = StudentGroupForms(instance=groups)
     return form
 
 

@@ -12,6 +12,8 @@ def create_attendance(request):
     if request.method == 'POST':
         form = AttendanceForm(request.POST)
         if form.is_valid():
+            attendance = form.save(commit=False)
+            attendance.group_lesson = group_lesson
             form.save()
             return redirect('attendance_list')
     else:

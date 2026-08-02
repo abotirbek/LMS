@@ -28,7 +28,7 @@ urlpatterns = [
     path('delete_room/<int:pk>/', room_views.delete_room, name='delete_room'),
 
     path('lesson_list/', lesson_views.get_lesson, name='lesson_list'),
-    path('create_lesson/<int:module_pk>/', lesson_views.create_lesson, name='create_lesson'),
+    path('create_lesson/<int:pk>/', lesson_views.create_lesson, name='create_lesson'),
     path('read_lesson/<int:pk>/', lesson_views.read_lesson, name='read_lesson'),
     path('update_lesson/<int:pk>/', lesson_views.update_lesson, name='update_lesson'),
     path('delete_lesson/<int:pk>/', lesson_views.delete_lesson, name='delete_lesson'),
