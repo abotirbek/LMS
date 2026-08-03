@@ -9,8 +9,10 @@ urlpatterns = [
     path('questions/<int:pk>/delete/', normativ_question_views.delete_normativ_question, name='delete_normativ_question'),
 
     path('answers/', normativ_answer_views.get_normativ_answer, name='normativ_answer_list'),
-    path('answers/create/', normativ_answer_views.create_normativ_answer, name='create_normativ_answer'),
+    path('answers/create/<int:pk>/', normativ_answer_views.create_normativ_answer, name='create_normativ_answer'),
     path('answers/<int:pk>/', normativ_answer_views.read_normativ_answer, name='read_normativ_answer'),
     path('answers/<int:pk>/update/', normativ_answer_views.update_normativ_answer, name='update_normativ_answer'),
     path('answers/<int:pk>/delete/', normativ_answer_views.delete_normativ_answer, name='delete_normativ_answer'),
+    path('check_normativs/', normativ_answer_views.check_normativs, name='check_normativs'),
+    path('check_students_normativs/<int:pk>/', normativ_answer_views.check_students_normativs, name='check_students_normativs'),
 ]

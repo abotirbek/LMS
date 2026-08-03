@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for s in students %}
+
+<pre>
+    {{s.user.first_name}} {{s.user.last_name}} ----- <a href="{% url 'check_students_normativs' s.pk %}">Baholash</a>
+</pre>
+
+{% endfor %}
+
+{% endblock %}

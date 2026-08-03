@@ -9,4 +9,4 @@ class NormativAnswerForm(forms.ModelForm):
 class NormativAnswerAssessForm(forms.ModelForm):
     class Meta:
         model = NormativAnswer
-        fields = ['question', 'score', 'feedback', 'checked_by', 'checked_at']
+        fields = ['score', 'feedback']

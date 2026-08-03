@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>{{student.user.first_name}} {{student.user.last_name}}</h3>
+  {% for s in answers %}
+    <pre>
+      Lesson title: {{ s.question.lesson.title }}
+      Question:
+      {{ s.question.text }}
+      Answer:
+      {{ s.answer_text }}
+    <a href="{% url 'update_normativ_answer' s.pk %}">Baholash</a>
+    </pre><hr>
+  {% endfor %}
+
+
+{% endblock %}
