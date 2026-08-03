@@ -17,7 +17,7 @@ def create_normativ_question(request, pk):
         if form.is_valid():
             normativ_question = form.save(commit=False)
             normativ_question.lesson = lesson
-            form.save()
+            normativ_question.save()
             return redirect('normativ_question_list')
     else:
         form = NormativQuestionForm()
